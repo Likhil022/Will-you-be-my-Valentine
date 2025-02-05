@@ -83,6 +83,7 @@ const Landing = () => {
             }`}
             style={{ top: position.top, left: position.left }}
             onMouseEnter={moveButton}
+            onClick={moveButton}
           >
             No
           </button>
