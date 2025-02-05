@@ -16,14 +16,12 @@ const Landing = () => {
   const moveButton = () => {
     setHoverCount(hoverCount + 1);
     if (hoverCount == 5) {
-      setText(
-        "I'm sorry, I'll leave you alone now.You may click no this time. 😔"
-      );
+      setText("I’ll just go cry in the corner. You may click No now. 😔");
       setPicture(sad);
       return;
     }
     if (hoverCount == 6) {
-      setText("Just kidding! 😂. But Please say Yes 😌");
+      setText("Just kidding. 😂. I can’t lose you. 😌");
       setPicture(MaleBear);
       setAnimation("animate-pulse");
     }
@@ -40,7 +38,7 @@ const Landing = () => {
   };
   const handleYesClick = () => {
     setPicture(BuzzFeed); // ✅ Change GIF
-    setText("I knew you'd say yes! 😘"); // ✅ Change text
+    setText("I knew it! We are made for each other 🤍"); // ✅ Change text
 
     // ✅ Start fade-out effect
     setFadeOut(true);
@@ -52,7 +50,7 @@ const Landing = () => {
   };
   return (
     <div className="flex flex-col justify-center items-center h-screen gap-20">
-      <h1 className="text-3xl font-bold text-slate-300 transition-all ease-in-out">
+      <h1 className="text-3xl font-bold text-white transition-all ease-in-out">
         {text}
       </h1>
       <img className=" max-w-80" src={picture} alt="Male Bear" />
