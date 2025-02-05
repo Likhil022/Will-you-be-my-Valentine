@@ -13,22 +13,34 @@ const Landing = () => {
   const [hid, setHid] = useState("true");
   const [showNoButton, setShowNoButton] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [size, setSize] = useState("w-20 h-12");
+  const [textSize, setTextSize] = useState("text-xl");
+
   const moveButton = () => {
     setHoverCount(hoverCount + 1);
     if (hoverCount == 5) {
       setText("I’ll just go cry in the corner. You may click No now. 😔");
       setPicture(sad);
+      setSize("w-16 h-12");
+      setTextSize("text-lg");
       return;
     }
     if (hoverCount == 6) {
       setText("Just kidding. 😂. I can’t lose you. 😌");
       setPicture(MaleBear);
-      setAnimation("animate-pulse");
+      setSize("w-12 h-8");
+      setTextSize("text-md");
     }
     if (hoverCount == 8) {
       setText("Stop running! Just say YES! 😂❤️");
       setPicture(MaleBear);
+      setSize("w-6 h-5");
+      setTextSize("text-sm");
     }
+    if (hoverCount >= 10) {
+      setFadeOut(true);
+    }
+
     if (hid) {
       setHid("hidden");
     }
@@ -53,17 +65,8 @@ const Landing = () => {
       <h1 className="text-3xl font-bold text-white transition-all ease-in-out">
         {text}
       </h1>
-      <img className=" max-w-80" src={picture} alt="Male Bear" />
+      <img className=" max-w-80 w-56 h-54" src={picture} alt="Male Bear" />
       <div className="relative w-[200px] h-[100px] ">
-        {/* <button
-          className={`absolute bottom-5 left-10 bg-green-400  w-20 h-12  text-black border-2 font-medium  border-solid border-black transition-all duration-500 ease-in-out hover:h-16 hover:w-24 hover:text-xl ${animation}`}
-          onClick={() => {
-            handleYesClick();
-          }}
-          onMouseEnter={() => setAnimation("animate-wiggle")}
-        >
-          Yes
-        </button> */}
         {showNoButton && (
           <button
             className={`aabsolute bottom-5 left-10 bg-green-400 w-20 h-12 text-black border-2 font-medium border-black transition-all duration-500 ease-in-out hover:h-16 hover:w-24 hover:text-xl ${animation}`}
@@ -76,9 +79,10 @@ const Landing = () => {
         )}
         {showNoButton && (
           <button
-            className={`no-button absolute bg-red-400 w-20 h-12 text-black border-2 font-medium border-black transition-opacity duration-500 ease-in-out ${
+            className={`no-button absolute bg-red-400 text-black border-2 font-medium border-black transition-opacity duration-500 ease-in-out ${textSize} ${
               fadeOut ? "opacity-0" : "opacity-100"
-            }`}
+            }
+            ${size}`}
             style={{ top: position.top, left: position.left }}
             onMouseEnter={moveButton}
             onClick={moveButton}
