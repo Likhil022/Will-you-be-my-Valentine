@@ -2,6 +2,8 @@ import MaleBear from "../assets/MaleBear.gif";
 import BuzzFeed from "../assets/BuzzFeed.gif";
 import sad from "../assets/sad.gif";
 import { useState } from "react";
+import "../Pages/style.css";
+
 const Landing = () => {
   const [position, setPosition] = useState({ top: "50", left: "150" });
   const [hoverCount, setHoverCount] = useState(0);
@@ -76,7 +78,7 @@ const Landing = () => {
         )}
         {showNoButton && (
           <button
-            className={`absolute bg-red-400 w-20 h-12 text-black border-2 font-medium border-black transition-opacity duration-500 ease-in-out ${
+            className={`no-button absolute bg-red-400 w-20 h-12 text-black border-2 font-medium border-black transition-opacity duration-500 ease-in-out ${
               fadeOut ? "opacity-0" : "opacity-100"
             }`}
             style={{ top: position.top, left: position.left }}

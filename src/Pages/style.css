@@ -1,0 +1,4 @@
+.no-button {
+  position: absolute;
+  transition: top 0.5s ease-in-out, left 0.5s ease-in-out;
+}
